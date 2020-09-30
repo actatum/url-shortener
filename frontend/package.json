@@ -1,10 +1,11 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "publish": "cd ../ && git subtree push --prefix frontend heroku master || true"
+    "heroku": "cd ../ && git subtree push --prefix frontend heroku master || true",
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
     "axios": "^0.20.0",
