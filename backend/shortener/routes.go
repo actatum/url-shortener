@@ -2,6 +2,7 @@ package shortener
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -39,6 +40,6 @@ func Run() error {
 	service := newService(repo, logger)
 	server := newServer(service)
 	r := routes(server)
-
-	return r.Start(":8080")
+	port := os.Getenv("PORT")
+	return r.Start(":" + port)
 }
