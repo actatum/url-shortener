@@ -1,1 +1,1 @@
-git subtree push - prefix backend heroku-aaron-sh-backend master
+git subtree push --prefix backend heroku-aaron-sh-backend master
