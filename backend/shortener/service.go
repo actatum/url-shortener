@@ -68,3 +68,14 @@ func (s *service) Read(req *Request) (*Response, error) {
 	s.logger.Info("retrieved url: " + resp.URL + " from slug: " + req.Slug)
 	return resp, nil
 }
+
+// Top5 gets the top 5 shortened urls by usage
+func (s *service) Top5() ([]Response, error) {
+	resp, err := s.repo.Top5()
+	if err != nil {
+		return nil, err
+	}
+
+	s.logger.Info("retrieved top 5 slugs")
+	return resp, nil
+}

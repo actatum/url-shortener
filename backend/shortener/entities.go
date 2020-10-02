@@ -8,6 +8,8 @@ type Request struct {
 
 // Response is an object representing a create or read response
 type Response struct {
-	Slug string `json:"slug"`
-	URL  string `json:"url"`
+	Slug      string `json:"slug"`
+	URL       string `json:"url"`
+	Uses      int    `json:"uses"`
+	CreatedAt int64  `json:"created_at"`
 }

@@ -41,3 +41,12 @@ func (s *server) Read(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, resp)
 }
+
+func (s *server) Top5(c echo.Context) error {
+	resp, err := s.service.Top5()
+	if err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
+	}
+
+	return c.JSON(http.StatusOK, resp)
+}

@@ -17,6 +17,7 @@ func routes(s *server) *echo.Echo {
 
 	e.POST("/url", s.Create)
 	e.GET("/url/:id", s.Read)
+	e.GET("/url", s.Top5)
 
 	return e
 }
@@ -32,7 +33,10 @@ func cors() middleware.CORSConfig {
 
 // Run starts the http server
 func Run() error {
-	repo := newRepository()
+	repo, err := newRepository()
+	if err != nil {
+		return err
+	}
 	logger, err := newLogger()
 	if err != nil {
 		return err
